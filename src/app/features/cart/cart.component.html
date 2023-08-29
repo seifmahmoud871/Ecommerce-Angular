@@ -92,7 +92,7 @@
               <div class="quantity ps-4 ">
                 <button class="btn btn-dark w-45px" (click)="increaseQuantity(index)">+</button>
                 <input class="form-control w-45px my-1"  (change)="detectChange()"
-                  [(ngModel)]="product.quantity" min="1">
+                  [(ngModel)]="product.quantity" min="1" placeholder="1">
                 <button class="btn btn-dark w-45px" (click)="decreaseQuantity(index)">-</button>
               </div>
             </div>
