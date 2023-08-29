@@ -1,0 +1,15 @@
+h2{
+    margin: auto;
+}
+
+.custom-container{
+    border-radius: 50%;
+}
+
+p span {
+    color: rgb(21, 21, 203);
+    cursor: pointer;
+}
+mat-icon{
+    cursor: pointer;
+}

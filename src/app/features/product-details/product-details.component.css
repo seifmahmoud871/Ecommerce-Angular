@@ -1,0 +1,22 @@
+.rating-price li{
+    background-color: rgb(130, 174, 4);
+    font-size: small;
+}
+
+.productDetails p{
+    color: #8d8d8d;
+}
+
+.big-card span{
+    top: 5%;
+    left: 93%;
+}
+.fa-heart{
+    color: red;
+}
+.loading{
+    min-height:50vh;
+}
+.wish-icon{
+    cursor: pointer;
+}

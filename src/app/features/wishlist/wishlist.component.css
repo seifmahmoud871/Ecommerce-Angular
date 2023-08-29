@@ -1,0 +1,17 @@
+.fa-heart{
+    color: red;
+}
+
+.crop {
+    overflow: hidden;
+}
+.empty-wishList{
+    min-height:50vh;
+}
+
+.fa-heart{
+    cursor: pointer;
+}
+.xx{
+    min-height: 50vh;
+}

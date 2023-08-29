@@ -1,0 +1,112 @@
+<!-- <app-carousel></app-carousel> -->
+<div *ngIf="!loading">
+    <header>
+        <div class="bg-overlay">
+            <svg viewBox="0 0 500 100">
+                <path d="M 0 50 C 150 150 300 0 500 80 L 500 0 L 0 0" fill="#F8F9FA" opacity="0.7"></path>
+                <path d="M 0 50 C 150 150 330 -30 500 50 L 500 0 L 0 0" fill="#fff" opacity="1"></path>
+              
+                
+               <!-- <path d="M 0 50 C 215 150 250 0 500 100 L 500 0 L 0 0" fill="#0D0D0D" opacity="0.5"></path> -->
+              </svg>
+            <div class="container ">
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <div class="header-content">
+                            <h1 class="text-white dm-serif" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">DISCOVER & SHOP <br> THE TREND</h1>
+                            <h2 class="text-white mt-5 dm-serif" data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine"><span class="text-danger">SALE</span> <br> UP TO 70%</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+            
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+       
+    </header>
+    
+    
+    <div id="carouselExampleIndicators" class="carousel slide p-5" data-bs-ride="carousel" style=" background-color: #F5F5F5;">
+        <div class="carousel-indicators  align-items-center ">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                class="active bg-dark-subtle" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" class="bg-dark-subtle" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+    
+        </div>
+        <div class="carousel-inner h-100">
+            <div class="carousel-item active h-100 ">
+                <div class="row">
+                    <div class="col-md-3" *ngFor="let category of categories">
+                        <a (click)="getSpecificCategory(category)" style="cursor:pointer;">
+                            <div class="card rounded-5 p-4 border-0 bg-white" style="width: 18rem;  background-color: #F5F5F5;">
+                                <div class="img-container">
+                                    <img [src]='category' class="card-img-top" alt="...">
+                                    <!-- <p>categorie</p> -->
+                                </div>
+                               
+                              </div>
+                        </a>
+                       
+                    </div>
+                    
+    
+                   
+                </div>
+               
+            </div>
+            <div class="carousel-item active h-100 ">
+                <div class="row">
+                    <ng-container>
+                        <div class="col-md-3" *ngFor="let category of categories" >
+                            <a (click)="getSpecificCategory(category)" style="cursor:pointer;">
+                                <div class="card rounded-5 p-4 border-0 bg-white" style="width: 18rem;  background-color: #F5F5F5;">
+                                    <div class="img-container">
+                                        <img [src]='category' class="card-img-top" alt="...">
+                                        <!-- <p>categorie</p> -->
+                                    </div>
+                                   
+                                  </div>
+                            </a>
+                           
+                        </div>
+                    </ng-container>
+                   
+                   
+                </div>
+               
+            </div>
+    
+        </div>
+    
+    
+    
+    </div> 
+    
+    
+    
+    
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-3 "  data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine"  data-aos-duration="300" *ngFor="let item of productArr | filter:key:'title' let index=index"  >
+                <span class="wish-icon position-absolute"><i class="fa"
+                    (click)="clickEvent(item, index)"
+                    (click)="showToastr()"
+                    [ngClass]="isSelectedProduct(index) ? 'fa-heart' : 'fa-heart-o'" 
+                   ></i></span>
+              <app-card [data]="item" routerLink="/details/{{item.id}}"></app-card>
+            </div>
+    
+    
+    
+        </div>
+    </div>
+    
+    
+</div>
+
+<div class="text-center w-100 loading position-relative" *ngIf="loading">
+    <app-spinner class="position-absolute top-50 end-50 start-50 bottom-50"></app-spinner>
+</div>

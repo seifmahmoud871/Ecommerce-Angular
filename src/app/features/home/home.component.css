@@ -1,0 +1,56 @@
+.card :hover img{
+    transform: scale(1.3);
+}
+.card img{
+    transition: all 0.7s;
+
+}
+
+.card{
+    overflow: hidden;
+}
+.carousel-indicators [data-bs-target]{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    
+}
+
+header{
+    background-image: url(../../../assets/images/bg2.png);
+    background-position: center;
+    background-size: cover;
+    height: 650px;
+    width: 1440px;
+}
+
+header svg{
+    z-index: -11;
+}
+header .container{
+    z-index: 999999;
+}
+
+
+
+.wish-icon{
+    top: 10%;
+    right: 75%;
+    cursor: pointer;
+    z-index: 99999;
+} 
+
+.fa{
+    font-size: 25px;
+}
+
+.fa-heart{
+
+    color: red;
+}
+
+
+.loading{
+    min-height:50vh;
+
+}

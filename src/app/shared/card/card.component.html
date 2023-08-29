@@ -1,0 +1,23 @@
+<div class="d-flex h-100 ">
+    
+    <div class="card border-0 p-5 m-4 position-relative ">
+        
+        <div class="img-box d-flex justify-content-center h-100 p-4 ">
+            <img [src]="data.image" class="img-fluid w-100" alt="iPhone">
+        </div>
+        <div class="card-content d-flex flex-column h-100 ">
+          
+            <div class="rate-price flex-grow-1">
+                
+            </div>
+            <h5 style="text-overflow: ellipsis;">{{data.title}}</h5>
+    
+            
+            <div class="star-rating d-flex justify-content-between mt-4 ">
+                <p class="item-price"><span>${{data.price}}</span></p>
+                <li class="list-inline-item rounded-5 h-50 px-1 pb-3"  style='color: #fff'><i class="fa fa-star" style='color: #fff'></i> {{data.rating.rate}}</li>
+            </div>
+           
+        </div>
+    </div>
+</div>

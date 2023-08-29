@@ -1,0 +1,19 @@
+.w-60{
+    width: 70%;
+}
+
+.fa-shopping-cart .badge{
+    top: -50%;
+    left: 30%;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+}
+
+.fa-heart .badge{
+    top: -50%;
+    left: 30%;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+}

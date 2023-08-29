@@ -1,0 +1,21 @@
+<form class="p-5" [formGroup]="signUpForm" (ngSubmit)="signUp()" >
+    <mat-icon  (click)="closeDialogRef()">close</mat-icon>
+    <h2 class="text-center">Sign Up</h2>
+    <div class="alert alert-danger text-center mt-2" role="alert" *ngIf="check == false">
+        {{text}}
+      </div>
+      <div class="alert alert-success text-center mt-2" role="alert" *ngIf="check == true" >
+        {{text}}
+      </div>
+    <div class="form-group mt-4 mb-2">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" >
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+    </div>
+    <button type="submit" class="btn btn-primary w-100 mt-5">Submit</button>
+    <p class="text-center mt-3">Already have an account? <span (click)="login()">Log In</span></p>
+  </form>

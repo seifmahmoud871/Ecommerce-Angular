@@ -1,0 +1,48 @@
+.xx {
+    background-color: rgb(130, 174, 4);
+    font-size: small;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.crop {
+    overflow: hidden;
+}
+
+.xxx {
+    min-height: 50%;
+}
+
+.empty-cart {
+    height: 40vh;
+}
+
+.w-45px {
+    width: 45px;
+}
+
+.products {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.checkout-card {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    background-color: #eaeaea;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 15px;
+}
+
+/* .container{
+    margin-left: 2%;
+    margin-right: 2%;
+} */
+.w-90{
+    width: 90%;
+}
+.product-img {
+    cursor: pointer;
+}
