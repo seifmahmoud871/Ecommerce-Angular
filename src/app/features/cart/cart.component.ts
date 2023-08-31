@@ -3,6 +3,7 @@ import { CartService } from './cart.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { LoginComponent } from 'src/app/core/login/login.component';
 import { ProductDetailsService } from '../product-details/product-details.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,7 @@ import { ProductDetailsService } from '../product-details/product-details.servic
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  constructor(private products: CartService,private dialog:MatDialog, private productDetailsService:ProductDetailsService) { }
+  constructor(private products: CartService,private dialog:MatDialog, private productDetailsService:ProductDetailsService , private toastr :ToastrService) { }
 
   cartProduct: any[] = [];
   deletedArr: any = [];
@@ -52,7 +53,7 @@ export class CartComponent implements OnInit {
     localStorage.setItem('cart', JSON.stringify(this.cartProduct));
     this.productDetailsService.count.next(this.cartProduct.length);
     console.log(this.cartProduct);
-    
+    this.toastr.warning('Removed Item From Cart')
     this.getProducts();
   }
 

@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { ProductDetailsService } from '../product-details/product-details.service';
 import { WishlistService } from './wishlist.service';
 import { Component, OnInit } from '@angular/core';
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
-  constructor(private wishlistService: WishlistService , private http:ProductDetailsService) { };
+  constructor(private wishlistService: WishlistService , private http:ProductDetailsService, private toastr: ToastrService) { };
 
   wishList: any[] = [];
   status: boolean = true;
@@ -64,6 +65,7 @@ export class WishlistComponent implements OnInit {
         // check = true
         localStorage.setItem("wish", JSON.stringify(this.wishList));
         console.log(this.wishList.length);
+        this.toastr.warning('Removed Item From Wish List')
         this.http.wishCount.next(this.wishList.length);
       }
 
