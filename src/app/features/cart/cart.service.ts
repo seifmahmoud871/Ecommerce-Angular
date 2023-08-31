@@ -11,6 +11,7 @@ export class CartService {
   deleteProduct(id:number){
     return this.http.delete(`https://fakestoreapi.com/products/${id}`);
   }
+
   public search = new BehaviorSubject<string>("");
 
 

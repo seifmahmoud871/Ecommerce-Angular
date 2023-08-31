@@ -8,5 +8,5 @@ export class WishlistService {
 
   constructor() { }
   public search = new BehaviorSubject<string>("");
-  
+
 }

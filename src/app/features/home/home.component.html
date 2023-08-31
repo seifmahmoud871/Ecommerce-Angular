@@ -92,11 +92,11 @@
         <div class="row mt-5">
             <div class="col-md-3 "  data-aos="fade-up" data-aos-offset="300" data-aos-easing="ease-in-sine"  data-aos-duration="300" *ngFor="let item of productArr | filter:key:'title' let index=index"  >
                 <span class="wish-icon position-absolute"><i class="fa"
-                    (click)="clickEvent(item, index)"
-                    (click)="showToastr()"
-                    [ngClass]="isSelectedProduct(index) ? 'fa-heart' : 'fa-heart-o'" 
+                    (click)="clickEvent(item)"
+                  
+                    [ngClass]="{'fa-heart':item.wishList , 'fa-heart-o' : !item.wishList}" 
                    ></i></span>
-              <app-card [data]="item" routerLink="/details/{{item.id}}"></app-card>
+              <app-card style="cursor: pointer;" [data]="item" routerLink="/details/{{item.id}}"></app-card>
             </div>
     
     

@@ -21,7 +21,7 @@ header{
     background-position: center;
     background-size: cover;
     height: 650px;
-    width: 1440px;
+    /* width: 1440px; */
 }
 
 header svg{

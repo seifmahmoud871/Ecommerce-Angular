@@ -5,8 +5,8 @@
             <div class="col-md-8">
     
                 <div class="big-card d-flex justify-content-between position-relative p-5 rounded-4" style="background-color: #F5F5F5;">
-                    <span class="wish-icon position-absolute"><i class=" fa fa-2x "  (click)="clickEvent(data)" (click)="showToastrWish()"
-                        [ngClass]="statusWishList ? 'fa-heart' : 'fa-heart-o'" ></i></span>
+                    <span class="wish-icon position-absolute"><i class=" fa fa-2x "  (click)="clickEvent(data)" 
+                        [ngClass]="{'fa-heart':data.wishList , 'fa-heart-o' : !data.wishList}"  ></i></span>
                     <div class="image w-100">
                         <img [src]="data.image" class="w-100" alt="">
                     </div>

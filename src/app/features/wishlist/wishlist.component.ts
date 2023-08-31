@@ -1,3 +1,4 @@
+import { ProductDetailsService } from '../product-details/product-details.service';
 import { WishlistService } from './wishlist.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
-  constructor(private wishlistService: WishlistService) { };
+  constructor(private wishlistService: WishlistService , private http:ProductDetailsService) { };
 
   wishList: any[] = [];
   status: boolean = true;
   empty:boolean=false;
   key :  string="";
+
   ngOnInit(): void {
     this.getWishlist();
     this.wishlistService.search.subscribe((res:any)=>{
@@ -24,6 +26,11 @@ export class WishlistComponent implements OnInit {
 
   getWishlist() {
     this.wishList = JSON.parse(localStorage.getItem('wish')!);
+    for(let i=0;i<this.wishList.length;i++){
+      if(this.wishList[i]?.wishList==0){
+        this.wishList.slice(i,1);
+      }
+    }
     if(this.wishList.length==0){
       this.empty=true;
     }
@@ -31,6 +38,7 @@ export class WishlistComponent implements OnInit {
 
   }
 
+  
   // selectedProductIndex: number = -1;
 
   // isSelectedProduct(index: number): boolean {
@@ -40,36 +48,29 @@ export class WishlistComponent implements OnInit {
     this.status = !this.status;
     
     
-    console.log({index});
-    console.log('dssda');
+    // console.log({index});
+    // console.log('dssda');
     
     this.wishList = JSON.parse(localStorage.getItem('wish')!) || [];
-
-
-    if (this.wishList.length == 0) {
-      this.wishList.push(product);
-      console.log(this.wishList);
-
-      localStorage.setItem("wish", JSON.stringify(this.wishList));
-      return;
+    for(let i=0;i<this.wishList.length;i++){
+      if(this.wishList[i]?.wishList==0){
+        this.wishList.slice(i,1);
+      }
     }
-    let check = false;
     this.wishList.forEach((item, index) => {
       if (item.id == product.id) {
+        item.wishList=0*item.wishList;
         this.wishList.splice(index, 1);
-        check = true
+        // check = true
         localStorage.setItem("wish", JSON.stringify(this.wishList));
+        console.log(this.wishList.length);
+        this.http.wishCount.next(this.wishList.length);
       }
 
     })
-    if (!check) {
-      this.wishList.push(product);
-      localStorage.setItem("wish", JSON.stringify(this.wishList));
-    }
-
-    console.log(this.wishList);
 
     if(this.wishList.length==0){
+      this.http.wishCount.next(this.wishList.length);
       this.empty=true;
     }
 

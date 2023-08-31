@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { LoginComponent } from 'src/app/core/login/login.component';
+import { ProductDetailsService } from '../product-details/product-details.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,7 @@ import { LoginComponent } from 'src/app/core/login/login.component';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  constructor(private products: CartService,private dialog:MatDialog) { }
+  constructor(private products: CartService,private dialog:MatDialog, private productDetailsService:ProductDetailsService) { }
 
   cartProduct: any[] = [];
   deletedArr: any = [];
@@ -18,6 +19,7 @@ export class CartComponent implements OnInit {
   total:any=0;
   empty:boolean=false;
   ngOnInit(): void {
+    window.scrollTo(0, 0)
     this.getProducts();
     this.products.search.subscribe((res:any)=>{
       this.key=res;
@@ -48,6 +50,7 @@ export class CartComponent implements OnInit {
   deleteProduct(index: number) {
     this.cartProduct.splice(index,1);
     localStorage.setItem('cart', JSON.stringify(this.cartProduct));
+    this.productDetailsService.count.next(this.cartProduct.length);
     console.log(this.cartProduct);
     
     this.getProducts();
